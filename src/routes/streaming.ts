@@ -1,7 +1,7 @@
 /**
  * Real-time Audio Streaming Route
  *
- * This WebSocket endpoint uses SignalWireRealtimeTransportLayer to bridge
+ * This WebSocket endpoint uses SignalWireCompatibilityTransportLayer to bridge
  * SignalWire WebSocket connections with OpenAI's Realtime API.
  */
 
@@ -10,20 +10,15 @@ import type { WebSocket } from 'ws';
 import {
   RealtimeAgent,
   RealtimeSession,
-  type RealtimeAgentConfiguration,
   type OpenAIRealtimeModels,
-  type RealtimeContextData,
   type RealtimeClientMessage,
-  type TransportError,
   type TransportEvent
 } from '@openai/agents/realtime';
-import { RunContext, RunToolApprovalItem,  } from '@openai/agents-core';
-import { SignalWireRealtimeTransportLayer } from '../transports/SignalWireRealtimeTransportLayer.js';
+import { SignalWireCompatibilityTransportLayer } from '../transports/SignalWireCompatibilityTransportLayer.js';
 import { logger } from '../utils/logger.js';
 import { CONNECTION_MESSAGES, ERROR_MESSAGES, EVENT_TYPES } from '../constants.js';
 import type { StreamingOptions } from '../types/index.js';
 import { AGENT_CONFIG } from '../config.js';
-import type { RealtimeSessionError } from '@openai/agents-realtime/dist/realtimeSessionEvents.js';
 
 
 export async function streamingRoute(
@@ -48,7 +43,7 @@ export async function streamingRoute(
 
     try {
       // Create SignalWire transport layer with configured audio format
-      const signalWireTransportLayer = new SignalWireRealtimeTransportLayer({
+      const signalWireTransportLayer = new SignalWireCompatibilityTransportLayer({
         signalWireWebSocket: connection,
         audioFormat: AGENT_CONFIG.audioFormat
       });
@@ -87,7 +82,7 @@ export async function streamingRoute(
       });
 
       // Handle errors gracefully
-      session.on('error', (error: RealtimeSessionError) => {
+      session.on('error', (error: { type: 'error'; error: unknown }) => {
         logger.error(ERROR_MESSAGES.SESSION_ERROR, error);
       });
 

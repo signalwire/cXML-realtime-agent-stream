@@ -12,7 +12,15 @@
     "clean": "rm -rf dist logs",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": ["signalwire", "openai", "realtime", "voice", "assistant", "telephony", "ai"],
+  "keywords": [
+    "signalwire",
+    "openai",
+    "realtime",
+    "voice",
+    "assistant",
+    "telephony",
+    "ai"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
@@ -24,6 +32,7 @@
     "@fastify/formbody": "^7.4.0",
     "@fastify/websocket": "^10.0.1",
     "@openai/agents": "^0.1.4",
+    "@openai/agents-extensions": "^0.1.5",
     "@openai/agents-realtime": "^0.1.4",
     "dotenv": "^17.2.2",
     "fastify": "^4.28.1",
