@@ -122,7 +122,7 @@ To test your AI assistant, create a SIP address that connects to your cXML resou
 
 ```bash
 git clone <repository-url>
-cd code/cxml-realtime-agent-stream
+cd cXML-realtime-agent-stream
 npm install
 ```
 
