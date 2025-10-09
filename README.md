@@ -2,6 +2,8 @@
 
 **Build an AI phone assistant that actually understands and responds naturally to your callers.**
 
+[![Run on Replit](https://replit.com/badge/github/signalwire/cXML-realtime-agent-stream)](https://replit.com/import/github)
+
 This project connects SignalWire's telephony platform with OpenAI's GPT-4 Realtime API to create voice assistants that can answer phone calls, have natural conversations, and help callers with real information—all in real-time.
 
 ## Table of Contents
@@ -120,6 +122,13 @@ To test your AI assistant, create a SIP address that connects to your cXML resou
 
 #### Clone and Install
 
+**Option 1: Try in Replit**
+
+[![Run on Replit](https://replit.com/badge/github/signalwire/cXML-realtime-agent-stream)](https://replit.com/import/github)
+
+> **📝 Replit Users:** You'll need to configure your OpenAI API key as a [Replit Secret](https://docs.replit.com/replit-workspace/workspace-features/secrets). Add `OPENAI_API_KEY` as a secret in your Repl.
+
+**Option 2: Clone Locally**
 ```bash
 git clone <repository-url>
 cd cXML-realtime-agent-stream
@@ -130,20 +139,25 @@ npm install
 
 Choose **ONE** method based on how you'll run the app:
 
-**🔵 Option A: Local Development** (using .env file)
+**☁️ Option A: Replit** (using Replit Secrets)
+- Go to the "Secrets" tab in your Repl (lock icon in sidebar)
+- Add a new secret: `OPENAI_API_KEY` with your API key value
+- [Learn more about Replit Secrets](https://docs.replit.com/replit-workspace/workspace-features/secrets)
+
+**🔵 Option B: Local Development** (using .env file)
 ```bash
 cp .env.example .env
 # Edit .env and add your OpenAI API key:
 # OPENAI_API_KEY=sk-your-actual-api-key-here
 ```
 
-**🐳 Option B: Docker Deployment** (using secrets folder)
+**🐳 Option C: Docker Deployment** (using secrets folder)
 ```bash
 mkdir -p secrets
 echo "sk-your-actual-api-key-here" > secrets/openai_api_key.txt
 ```
 
-> **Note:** Never use both methods at the same time. Docker automatically uses the secrets folder, while local development uses .env.
+> **Note:** Use only ONE method. Replit uses Secrets, local development uses .env, and Docker uses the secrets folder.
 
 > **🔑 Get Your API Key:** [OpenAI Platform](https://platform.openai.com/api-keys) (requires paid account)
 
