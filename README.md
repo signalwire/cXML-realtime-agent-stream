@@ -126,7 +126,7 @@ To test your AI assistant, create a SIP address that connects to your cXML resou
 
 [![Run on Replit](https://replit.com/badge/github/signalwire/cXML-realtime-agent-stream)](https://replit.com/import/github)
 
-> **📝 Replit Users:** You'll need to configure your OpenAI API key as a [Replit Secret](https://docs.replit.com/replit-workspace/workspace-features/secrets). Add `OPENAI_API_KEY` as a secret in your Repl.
+> **📝 Note:** Clicking the button above will take you to Replit where you can import this GitHub repository. After importing, you'll need to configure your OpenAI API key as a [Replit Secret](https://docs.replit.com/replit-workspace/workspace-features/secrets). Add `OPENAI_API_KEY` as a secret in your Repl.
 
 **Option 2: Clone Locally**
 ```bash
